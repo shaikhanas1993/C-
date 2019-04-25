@@ -1,30 +1,11 @@
-﻿//using System;
-
-// namespace c_
-// {
-//     class Program
-//     {
-//         static void Main(string[] args)
-//         {
-//             Console.WriteLine("Hello World!");
-//         }
-//     }
-// }
-
-// using System;
-
-// namespace c_{
-//     class Program{
-//         public static void Main(string[] args){
-//             Console.WriteLine("Hello world!!");
-//         }
-//     }
-// }
-
-
-using System;
+﻿using System;
+using Services;
 namespace c_{
     class Program {
-        static void Main(string[] args) => Console.WriteLine("Hello world");
+        static void Main(string[] args) {
+            Rectangle obj = new Rectangle();
+            obj.PrintCalculatedArea();
+            var @try = "safaf";
+        }
     }
-}
+}   
