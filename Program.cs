@@ -4,22 +4,30 @@ namespace c_{
     class Program {
         const double pi = 3.14159;   
         static void Main(string[] args) {
+                
+                int[][][] arr = new int[2][][]{
+                    new int[2][] {
+                        new int[]{1,2},
+                        new int[]{1,2},
+                    },
+                    new int[2][] {
+                        new int[]{1,2},
+                        new int[]{1,2},
+                    },
+                };
 
-           
-           Console.WriteLine("Hello\tWorld\n\n");
+                foreach (var item in arr)
+                {
+                        foreach (var elem in item)
+                        {
+                            System.Console.WriteLine(elem);
+                            foreach (var elem1 in elem){
+                                System.Console.WriteLine(elem1);
+                            }
+                        }
+                }
 
-            // Rectangle obj = new Rectangle();
-            // obj.PrintCalculatedArea();
-            // var str = "hello world";
-            // System.Console.WriteLine("{0}",sizeof(double));
 
-            // double d = 124.1241414;
-            // int a  = (int) d;
-
-            //  str = d.ToString();
-            // System.Console.WriteLine(str.GetType() );
-            // System.Console.WriteLine("a :: {0}",a);
-            // System.Console.WriteLine(d.ToString());    
 
         }
     }
