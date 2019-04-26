@@ -6,10 +6,13 @@ namespace c_
     {
         static void Main(string[] args) 
         {
-                MArray m = new MArray();    
-                JArray j = new JArray();    
+                // MArray m = new MArray();    
+                // JArray j = new JArray();    
             //    m.PrintArray();
-                j.printArray();
+              //  j.printArray();
+              int[] arr = {5,6,3};
+              FuncArray obj = new FuncArray();
+              obj.printArray(arr);
         }
     }
 }
