@@ -4,16 +4,5 @@
         <name>c#</name>
     </assembly>
     <members>
-        <member name="T:c_.Program">
-            <summary>
-            hello world class
-            </summary>
-        </member>
-        <member name="M:c_.Program.Main(System.String[])">
-            <summary>
-             entry point 
-            </summary>
-            <param name="args"></param>
-        </member>
     </members>
 </doc>
