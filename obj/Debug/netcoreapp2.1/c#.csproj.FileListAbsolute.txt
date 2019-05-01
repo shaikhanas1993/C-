@@ -9,3 +9,5 @@
 /home/anas/Code/c#/obj/Debug/netcoreapp2.1/c#.AssemblyInfo.cs
 /home/anas/Code/c#/obj/Debug/netcoreapp2.1/c#.dll
 /home/anas/Code/c#/obj/Debug/netcoreapp2.1/c#.pdb
+/home/anas/Code/c#/bin/Debug/netcoreapp2.1/c#.xml
+/home/anas/Code/c#/obj/Debug/netcoreapp2.1/c#.xml
