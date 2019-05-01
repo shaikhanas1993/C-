@@ -2,48 +2,69 @@
 using Services;
 namespace c_
 {
-    public interface ITransaction
-    {
+    // public interface ITransaction
+    // {
 
-        void ShowTransaction();
-        double GetAmount();
+    //     void ShowTransaction();
+    //     double GetAmount();
+    // }
+
+    // class Test : ITransaction
+    // {
+
+    //     public int a {get;set;}
+    //     public int b {get;set;}
+
+    //     public Test()
+    //     {
+    //     }
+
+    //     public Test(int a, int b)
+    //     {
+    //         this.a = a;
+    //         this.b = b;
+    //     }
+    //     public double GetAmount()
+    //     {
+    //         return a*b;
+    //     }
+
+    //     public void ShowTransaction()
+    //     {
+    //         System.Console.WriteLine("a == {0} , b == {1}",a,b);
+    //     }
+    // }
+
+
+    namespace c1
+    {
+        class Add 
+        {
+            public int add(int a ,int b){
+                return a + b; 
+            }
+        }
     }
 
-    class Test : ITransaction
+     namespace c2
     {
-
-        public int a {get;set;}
-        public int b {get;set;}
-
-        public Test()
+        class Add 
         {
-        }
-
-        public Test(int a, int b)
-        {
-            this.a = a;
-            this.b = b;
-        }
-        public double GetAmount()
-        {
-            return a*b;
-        }
-
-        public void ShowTransaction()
-        {
-            System.Console.WriteLine("a == {0} , b == {1}",a,b);
+            public int add(int a ,int b){
+                return a + b + b; 
+            }
         }
     }
-
 
     class Program 
     {
         static void Main(string[] args) 
         {
-            ITransaction obj = new Test(5,5);
-            Test t = (Test) obj;
-            System.Console.WriteLine(obj.GetAmount());
-            obj.ShowTransaction();
+            var obj1 = new c1.Add();
+            var obj2 = new c2.Add();
+            System.Console.WriteLine(obj1.add(5,6));
+
+            System.Console.WriteLine(obj2.add(5,6));      
         }
     }
 }
