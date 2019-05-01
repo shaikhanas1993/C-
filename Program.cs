@@ -44,6 +44,17 @@ namespace c_
                 return a + b; 
             }
         }
+
+        namespace JSON
+        {
+            class Json
+            {
+                public void print()
+                {
+                    Console.WriteLine("in json class");
+                }
+            }
+        }
     }
 
      namespace c2
@@ -63,6 +74,9 @@ namespace c_
             var obj1 = new c1.Add();
             var obj2 = new c2.Add();
             System.Console.WriteLine(obj1.add(5,6));
+
+            var obj3 = new c1.JSON.Json();
+            obj3.print();
 
             System.Console.WriteLine(obj2.add(5,6));      
         }
