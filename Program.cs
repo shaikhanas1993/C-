@@ -1,37 +1,47 @@
-﻿#define DEBUG
-#define version1
-// #undef DEBUG
+﻿
+
 
 using System;
 using Services;
 namespace c_
 {
-      class Program 
+
+    class TestException:Exception
+    {
+        public TestException(string message):base(message){}
+        
+    }
+
+    class Test
+    {
+        #pragma warning disable 169, 414
+        int a = 0;
+                public void ShowTemperature()
+        {
+           
+            if(a == 0)
+            {
+                try
+                {
+                    throw(new TestException("test excepion"));
+                }
+                 
+                catch (System.Exception e)
+                {
+                    
+                    System.Console.WriteLine(e.Message);
+                }
+            }
+        }
+    }
+
+    class Program 
     {
 
         static void Main(string[] args) 
         {
-
-            int a = 10;
-
-            try
-            {
-                int j = a/0;
-            }
-            catch (Exception e)
-            {
-                System.Console.WriteLine(e);                
-            }
-            finally
-            {
-                System.Console.WriteLine("hello world");
-            
-            }
-
-            
-
-            
-
+            var obj = new Test();
+            obj.ShowTemperature();
         }
     }
 }
