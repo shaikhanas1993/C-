@@ -1,38 +1,24 @@
-﻿
-
-
-using System;
+﻿using System;
 using Services;
 namespace c_
 {
 
-    class TestException:Exception
+    [AttributeUsage(AttributeTargets.All)]
+    class HelpAttribute : System.Attribute
     {
-        public TestException(string message):base(message){}
-        
+        private readonly string url;
+        public string topic {get;set;}
+
+        public HelpAttribute(string url)
+        {
+            this.url = url;
+        }
     }
 
-    class Test
+    [HelpAttribute("This is Test")]
+    class MyClass
     {
-        #pragma warning disable 169, 414
-        int a = 0;
-                public void ShowTemperature()
-        {
-           
-            if(a == 0)
-            {
-                try
-                {
-                    throw(new TestException("test excepion"));
-                }
-                 
-                catch (System.Exception e)
-                {
-                    
-                    System.Console.WriteLine(e.Message);
-                }
-            }
-        }
+        
     }
 
     class Program 
@@ -40,8 +26,12 @@ namespace c_
 
         static void Main(string[] args) 
         {
-            var obj = new Test();
-            obj.ShowTemperature();
+            System.Reflection.MemberInfo info =  typeof(MyClass);
+            object[] listOfAttributes = info.GetCustomAttributes(true);
+            foreach (var item in listOfAttributes)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }
