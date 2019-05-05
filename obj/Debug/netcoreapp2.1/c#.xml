@@ -4,5 +4,16 @@
         <name>c#</name>
     </assembly>
     <members>
+        <member name="T:c_.Cookie">
+            <summary>
+                Cookie Class to set and get dictionary
+            </summary>
+        </member>
+        <member name="P:c_.Cookie.Item(System.String)">
+            <summary>
+              indexer for cookie class
+            </summary>
+            <value></value>
+        </member>
     </members>
 </doc>
