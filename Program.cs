@@ -4,145 +4,69 @@ using Services;
 namespace c_
 {
 
-    // [AttributeUsage(AttributeTargets.All)]
-    // class HelpAttribute : System.Attribute
-    // {
-    //     private readonly string url;
-    //     public string topic {get;set;}
-
-    //     public HelpAttribute(string url)
-    //     {
-    //         this.url = url;
-    //     }
-    // }
-
-    // [HelpAttribute("This is Test")]
-    // class MyClass
-    // {
-        
-    // }
-
-    // [AttributeUsage(AttributeTargets.All,AllowMultiple = true)]
-    // class DebugInfo : System.Attribute
-    // {
-    //     private int bugNo;
-    //     private string developer;
-    //     private string lastReview;
-
-    //     public string messsage {get;set;}
-
-    //     public DebugInfo(int bugNo,string developer,string lastReview)
-    //     {
-    //         this.bugNo = bugNo;
-    //         this.developer = developer;
-    //         this.lastReview = lastReview;
-    //     }
-
-    //     public int BugNo
-    //     {
-    //         get
-    //         {
-    //             return this.bugNo;
-    //         }
-    //     }
-
-    //     public string Developer 
-    //     {
-    //         get 
-    //         {
-    //              return this.developer; 
-    //         }
-    //     }
-    //     public string LastReview 
-    //     {
-    //         get
-    //         {
-    //             return this.lastReview;
-    //         }
-    //     }
-
-    // }
-
-    // [DebugInfo(1,"ab","1")]
-    // [DebugInfo(1,"cd","4")]
-    // class Test
-    // {
-    //     private int a,b;
-
-    //     public Test(int a, int b)
-    //     {
-    //         this.a = a;
-    //         this.b = b;
-    //     }
-
-    //      [DebugInfo(1,"eff","5",messsage = "testing")]
-    //     public int add()
-    //     {
-    //         return a + b;
-    //     }
-
-    // }
-
-/// <summary>
-///     Cookie Class to set and get dictionary
-/// </summary>
-    public class Cookie
+    class Cookie
     {
         private readonly Dictionary<string,string> _dictionary;
-        public DateTime expiry { get; set; }    
+
         public Cookie()
         {
-            _dictionary = new Dictionary<string, string>();
+            _dictionary = new Dictionary<string, string>(); 
         }
 
-        /// <summary>
-        ///   indexer for cookie class
-        /// </summary>
-        /// <value></value>
         public string this[string key]
         {
-            get
-            {
-                return _dictionary[key];
-            }
+             get
+             {
+                 return _dictionary[key];
+             }
 
-            set
-            {
-                _dictionary[key] = value;
-            }
+             set
+             {
+                 _dictionary[key] = value;
+             }
         }
-
     }
 
     class Program 
     {
 
+        static List<int> myList = new List<int>();
+
+        static Program()
+        {
+            myList.Add(1);
+            myList.Add(2);
+            myList.Add(3);
+            myList.Add(4);
+            myList.Add(5);
+        }
+
         static void Main(string[] args) 
         {
-
-            Cookie cookie = new Cookie();
-            cookie["name"] = "anas";
-            Console.WriteLine("name of cookie :: {0}" , cookie["name"]);
-
-            // Type type = typeof(Test);
-            //  var listOfCustomAttributes = type.GetCustomAttributes(false);
-            //  foreach (var item in listOfCustomAttributes)
-            //  {
-            //      var dbi = item as DebugInfo;
-            //      if(dbi != null)
-            //      {
-            //          Console.WriteLine("BugNo :: {0}", dbi.BugNo);
-            //          Console.WriteLine("");
-            //      }
-            //  }
-
-
-            // System.Reflection.MemberInfo info =  typeof(MyClass);
-            // object[] listOfAttributes = info.GetCustomAttributes(true);
-            // foreach (var item in listOfAttributes)
+            // foreach (var item in RunningTotal())
             // {
             //     Console.WriteLine(item);
             // }
+
+            // var obj = RunningTotal();
+
+                foreach (var item in RunningTotal())
+                {
+                   
+                    Console.WriteLine(item);
+                }
         }
+
+        static IEnumerable<int> RunningTotal()
+        {
+            int sum = 0;
+            
+            foreach (var item in myList)
+            {
+                sum += item;
+                yield return sum;
+            }
+        }
+
     }
 }
