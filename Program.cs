@@ -3,95 +3,55 @@ using System.Collections.Generic;
 using Services;
 namespace c_
 {
+    
     /// <summary>
-    /// Event Publisher Class
+    ///     Publisher Class
     /// </summary>
-    class PrintHelper
+    class Publisher
     {
-        public delegate void BeforePrint();
-        public event BeforePrint beforePrintEvent;
+        public delegate void beforePrint(string message);
+        public event beforePrint beforePrintEvent;
 
-        public PrintHelper(){}
+        public Publisher(){}
 
-        public void PrintNumber()
+        public void printNumber()
         {
             if(beforePrintEvent != null)
             {
-                beforePrintEvent();
+                beforePrintEvent.Invoke("Print Number");
             }
-
-            Console.WriteLine("Printing Number");
         }
 
-        public void PrintMoney()
-        {
-            if(beforePrintEvent != null)
-            {
-               
-                //Event publisher or raiser
-                beforePrintEvent.Invoke();
-            }
+    }
 
-            Console.WriteLine("printing Money");
-        }
+    class Subscriber
+    {
+       private Publisher _publisher;
 
-        public void PrintCode()
-        {
-            if(beforePrintEvent != null)
-            {
-                beforePrintEvent.Invoke();
-            }
-
-            Console.WriteLine("Printing Code");
-        }
-   }
-    
-    
-
-    /// <summary>
-    ///    Event Subscriber 
-    /// </summary>
-   class Number
-   {
-       private PrintHelper _printHelper;
-       private int _value;
-
-       public Number(int value)
+       public Subscriber()
        {
-           _value = value;
-           _printHelper =  new PrintHelper();
-          
-          
-           _printHelper.beforePrintEvent += beforePrintEventHandler;
+          _publisher = new Publisher();
+          _publisher.beforePrintEvent += myEventHandler;
+          _publisher.beforePrintEvent += myEventHandler1; 
        } 
 
-       /**
-        *    Event Handler
-        */ 
-       public void beforePrintEventHandler()
+       public void myEventHandler(string message)
        {
-           Console.WriteLine("i am event handler");
+           Console.WriteLine(message);
        }
 
+       public void myEventHandler1(string message)
+       {
+           Console.WriteLine(message);
+       }
 
-        public int Value
-        {
-            get { return _value; } 
-            set { _value = value;} 
-        } 
+       public void PrintNumber()
+       {
+           _publisher.printNumber();
+       } 
+       
 
-        public void PrintMoney()
-        {
-            _printHelper.PrintMoney();
-        }
-
-        public void PrintNumber()
-        {
-            _printHelper.PrintNumber();
-        }
-
-   }
-
+    }
 
 
     class Program 
@@ -99,9 +59,8 @@ namespace c_
 
         static void Main(string[] args) 
         {
-            Number number = new Number(5);
-            number.PrintMoney();
-            number.PrintNumber();
+           var obj = new Subscriber();
+           obj.PrintNumber();
         }
 
     }

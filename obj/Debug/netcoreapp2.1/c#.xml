@@ -4,14 +4,9 @@
         <name>c#</name>
     </assembly>
     <members>
-        <member name="T:c_.PrintHelper">
+        <member name="T:c_.Publisher">
             <summary>
-            Event Publisher Class
-            </summary>
-        </member>
-        <member name="T:c_.Number">
-            <summary>
-               Event Subscriber 
+                Publisher Class
             </summary>
         </member>
     </members>
