@@ -4,10 +4,5 @@
         <name>c#</name>
     </assembly>
     <members>
-        <member name="T:c_.Publisher">
-            <summary>
-                Publisher Class
-            </summary>
-        </member>
     </members>
 </doc>
