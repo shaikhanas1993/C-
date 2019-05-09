@@ -3,70 +3,33 @@ using System.Collections.Generic;
 using Services;
 namespace c_
 {
+    public delegate void Print();
 
-    class Cookie
+    class Test
     {
-        private readonly Dictionary<string,string> _dictionary;
-
-        public Cookie()
+        public void printNumber()
         {
-            _dictionary = new Dictionary<string, string>(); 
+            Console.WriteLine("i am printing number");
         }
 
-        public string this[string key]
+        public void printZero()
         {
-             get
-             {
-                 return _dictionary[key];
-             }
-
-             set
-             {
-                 _dictionary[key] = value;
-             }
+            Console.WriteLine("i am printing zero");
         }
     }
 
     class Program 
     {
 
-        static List<int> myList = new List<int>();
-
-        static Program()
-        {
-            myList.Add(1);
-            myList.Add(2);
-            myList.Add(3);
-            myList.Add(4);
-            myList.Add(5);
-        }
-
         static void Main(string[] args) 
         {
-            // foreach (var item in RunningTotal())
-            // {
-            //     Console.WriteLine(item);
-            // }
-
-            // var obj = RunningTotal();
-
-                foreach (var item in RunningTotal())
-                {
-                   
-                    Console.WriteLine(item);
-                }
-        }
-
-        static IEnumerable<int> RunningTotal()
-        {
-            int sum = 0;
-            
-            foreach (var item in myList)
-            {
-                sum += item;
-                yield return sum;
-            }
+            Test test = new Test();
+            Print obj = test.printNumber;
+                  obj += test.printZero;  
+          
+            obj();
         }
 
     }
+
 }
