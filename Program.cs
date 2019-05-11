@@ -2,22 +2,33 @@
 using System.Collections.Generic;
 namespace c_
 {
-    
-    class Program 
+   
+    class Animal
     {
         
+    }
+
+    class Fish : Animal
+    {
+        
+    }
+
+    class Cat : Animal
+    {
+        
+    }
+
+    class Random
+    {
+        
+    }
+    
+
+    class Program 
+    {
+
         static void Main(string[] args) 
         {
-            Nullable<int> i = null ;
-
-            if(i.HasValue)
-            {
-                Console.WriteLine("has value : {0}",i);
-            }
-            else
-            {
-                Console.WriteLine("does not have value {0}",i.GetValueOrDefault());
-            }
 
         }
 
