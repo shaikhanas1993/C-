@@ -108,9 +108,97 @@ namespace c_
        #endregion 
 
 
+       #region  genericList
+       static void GenericTest1()
+       {
+           List<int> list = new List<int>();
+           list.Add(1);
+           list.Add(2);
+           list.Add(3);
+
+           foreach (var item in list)
+           {
+                Console.WriteLine("item == {0}", item);
+           }
+       } 
+
+       #endregion
+
+       #region generic dictionary 
+       static void GenericDictionary()
+       {
+           Dictionary<int,string> dictionary = new Dictionary<int, string>();
+           dictionary.Add(0,"anas");
+           dictionary.Add(1,"jarrar"); 
+
+           foreach (var item in dictionary)
+           {
+               Console.WriteLine("item == {0} , value == {1}",item.Key,item.Value);
+           } 
+
+       } 
+
+       #endregion
+
+        #region  generic sorted llist
+        static void GenericSortedList()
+        {
+            SortedList<string,string> sortedList = new SortedList<string, string>();
+            sortedList.Add("j","j");
+            sortedList.Add("b","b");
+
+            foreach (var item in sortedList)
+            {
+                    Console.WriteLine("item == {0} , value == {1}",item.Key,item.Value);
+            }
+
+        }
+
+        #endregion
+
+        #region  generic stack
+        static void GenericStack()
+        {
+            Stack<int> stack = new Stack<int>();
+            stack.Push(1);
+            stack.Push(2);
+            stack.Push(3);
+
+            foreach (var item in stack)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine("popped element == {0}",stack.Pop());
+
+        }
+
+        #endregion
+
+
+        #region generic queue
+
+        static void GenericQueue()
+        {
+            Queue<string> queue = new Queue<string>();
+            queue.Enqueue("1");
+            queue.Enqueue("2");
+
+            foreach (var item in queue)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine("Popped Element == {0}",queue.Dequeue());
+
+        }
+
+        #endregion
+
+
         static void Main(string[] args) 
         {
-            Test4();
+            GenericQueue();
         }
 
     }
