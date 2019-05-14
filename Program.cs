@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace c_
@@ -197,14 +198,26 @@ namespace c_
 
         #endregion
 
+        // public void getMyName()
+        // {
+
+        // }
 
         static void Main(string[] args) 
         {
            // GenericQueue();
 
-           Task<string> obj = Task.Run(() => "hello");
-           Console.WriteLine(obj.Result); 
+        //    Task<string> obj = Task.Run(() => "hello");
+        //    Console.WriteLine(obj.Result); 
+
+            Thread thread = new Thread(new ThreadStart(getMyName));
+            thread.Start();
         }
+
+        public static void getMyName() {
+            Console.WriteLine("hello world");
+        } 
+
 
     }
 
