@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+
 namespace c_
 {
    
@@ -198,7 +200,10 @@ namespace c_
 
         static void Main(string[] args) 
         {
-            GenericQueue();
+           // GenericQueue();
+
+           Task<string> obj = Task.Run(() => "hello");
+           Console.WriteLine(obj.Result); 
         }
 
     }
