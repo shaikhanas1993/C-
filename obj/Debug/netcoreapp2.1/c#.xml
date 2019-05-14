@@ -4,5 +4,11 @@
         <name>c#</name>
     </assembly>
     <members>
+        <member name="M:c_.Program.Main(System.String[])">
+            <summary>
+            Main thread of the process
+            </summary>
+            <param name="args"></param>
+        </member>
     </members>
 </doc>

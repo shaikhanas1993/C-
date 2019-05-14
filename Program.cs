@@ -203,17 +203,60 @@ namespace c_
 
         // }
 
+
+        static void Method1()
+        {
+                for (int i = 0; i < 10; i++)
+                {
+                    Console.WriteLine("Method 1 is at : {0}",i);
+                    if(i == 5)
+                    {
+                        Thread.Sleep(6000);
+                    }
+                }
+        }
+
+        static void Method2()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine(" Method2 : {0}",i);
+            }
+        }
+
+        /// <summary>
+        /// Main thread of the process
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args) 
         {
+
+
+            /*
+                Single Thread Model
+             */    
+            Method1();
+            Method2();    
+
+
+         /**
+              Multiple Thread Model ( MultiThreading )  
+          */
+       Thread thread1 = new Thread(Method1);
+       Thread thread2 = new Thread(Method2);
+       thread1.Start();
+       thread2.Start();
+
            // GenericQueue();
 
         //    Task<string> obj = Task.Run(() => "hello");
         //    Console.WriteLine(obj.Result); 
 
-            Thread thread = new Thread(new ThreadStart(getMyName));
-            thread.Start();
+         //   Thread thread = new Thread(new ThreadStart(getMyName));
+         //   thread.Start();
         }
 
+         
         public static void getMyName() {
             Console.WriteLine("hello world");
         } 
